@@ -2,8 +2,22 @@
 title: "My Website"
 ---
 
-Hello, Website!
+```{r echo = FALSE, warning = FALSE}
+# Web address for this book
+# https://j-ramalho.github.io/industRialstatistics/
 
-For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+library(htmltools)
+    div(
+      img(
+        src = "img/JR.png",
+        alt = "Jo\u00E3o Ramalho",
+        style = "border-radius: 100%"
+      ),
+      div(
+        h5("Jo\u00E3o Ramalho"),
+        p("Industrial Data Scientist")
+      )
+    )
+```
 
-Please also note that simple R Markdown sites are _not_ based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+João has more than 20 years of experience in the manufacturing industry. Having held numerous positions in R&D, Operations and IT at Philip Morris, Rolex and Nestlé, he has an exceptionally large view of how consumer goods are conceived, industrialized and manufactured. He holds a Master in Mechanical Engineering from the [IST](http://ist.pt/), a Project Management certification from [PMI](https://www.pmi.org/) and a Data Science certification from [DataCamp](https://www.datacamp.com/). He's currently specializing in Data Visualization at the Swiss technical university [EPFL](https://www.extensionschool.ch/).
