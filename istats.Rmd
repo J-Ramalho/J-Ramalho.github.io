@@ -1,0 +1,19 @@
+---
+pagetitle: "industRial statistics"
+output:
+  html_document:
+    css: www/style.css
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+![](img/i4dot0icon_30.png)
+   
+# industRial statistics
+
+This a journal on practical applications of data science and statistical tools to Product Development and Manufacturing.
+
+
+
+```{r, child="_spc.Rmd"}
+```

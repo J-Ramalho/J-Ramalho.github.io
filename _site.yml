@@ -2,8 +2,8 @@ name: "my-website"
 navbar:
   title: "João Ramalho"
   left:
-    - text: "Home"
+    - text: "Profile"
       href: index.html
-    - text: "Publications"
-      href: publications.html
+    - text: "industRial statistics"
+      href: istats.html
 output_dir: "docs"

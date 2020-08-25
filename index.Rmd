@@ -1,6 +1,8 @@
 ---
-title: ""
-pagetitle: "Home"
+pagetitle: "Profile"
+output:
+  html_document:
+    css: www/style.css
 ---
 
 ```{r echo = FALSE, warning = FALSE}
@@ -8,15 +10,14 @@ pagetitle: "Home"
 # https://j-ramalho.github.io/industRialstatistics/
 
 library(htmltools)
-    div(
-      img(
-        src = "img/JR.png",
-        alt = "Jo\u00E3o Ramalho",
-        style = "border-radius: 100%"
+    div(img(
+          src = "img/JR.png",
+          alt = "Jo\u00E3o Ramalho",
+          style = "border-radius: 100%"
       ),
       div(
-        h5("Jo\u00E3o Ramalho"),
-        p("Industrial Data Scientist")
+        h1("Jo\u00E3o Ramalho"),
+        h3("Industrial Data Scientist")
       )
     )
 ```

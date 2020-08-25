@@ -1,6 +1,0 @@
----
-title: "blog1"
-pagetitle: "blog1"
----
-
-This is my first blog entry.

@@ -1,9 +1,0 @@
----
-title: "Publications"
----
-
-
-Below a list of my publications:
-
-```{r, child="_blog1.Rmd"}
-```
