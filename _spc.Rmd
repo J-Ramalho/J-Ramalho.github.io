@@ -6,7 +6,6 @@ pagetitle: "spc"
 
 Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. 
 
-This example is adapted from [@Bass2007] from which we reuse the the data. 
 We start by loading it in our R session:
 ```{r message = FALSE}
 bamako <- read_csv("data/Bamako.csv")
@@ -37,3 +36,4 @@ Afterwards, the production samples can  be assessed against those limits and the
 
 In the graphic below the control limits are calculated according to the selected duration of the calibration run. The runs breaking the shewhart rules are re-evaluated when control limits change.
 
+Adapted from [@Bass2007]

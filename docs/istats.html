@@ -370,14 +370,25 @@ div.tocify {
 </div>
 
 
-<p><img src="img/i4dot0icon_30.png" /></p>
+<p><img src="img/i4dot0icon_20.png" /></p>
 <div id="industrial-statistics" class="section level1">
 <h1>industRial statistics</h1>
-<p>This a journal on practical applications of data science and statistical tools to Product Development and Manufacturing.</p>
+<p>This journal provides practical examples on how to use Data Science tools and techniques in New Product Development and Manufacturing.</p>
+<p>Abundant literature exists on both Data Science and on Product Development but in our view there are not enough transferable examples on how to benefit from recent R libraries in this area. Product Engineering and Manufacturing are very important activities in society because bringing innovative products to the market has an immense potential to improve the quality of life of everyone. Data Science brings new powerful approaches to the engineering and manufacturing of Consumer Goods and other Products helping minimizing their environmental impact and deliver optimal quality features at an affordable cost.</p>
+<p>We aim at providing only directly applicable cases, similar to a cookbook approach. from a solid background in all related disciplines (e.g. design for six sigma, statistics and computer programming).</p>
+<p>Theses case studies come from varied industries where repetitive manufacturing in massive quantities is involved, such as:</p>
+<ul>
+<li>pharmaceuticals</li>
+<li>food</li>
+<li>electronics</li>
+<li>watch making</li>
+<li>automotive</li>
+</ul>
+<p>All the case studies are either fully anonymized or published the with the agreement of the originators for which the sources are clearly identified.</p>
 <div id="statistical-process-control-spc" class="section level2">
 <h2>Statistical Process Control (SPC)</h2>
-<p>Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts.</p>
-<p>This example is adapted from <span class="citation">[@Bass2007]</span> from which we reuse the the data. We start by loading it in our R session:</p>
+<p>Bamako Lightening <span class="citation">(Bass 2007)</span> is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts.</p>
+<p>We start by loading it in our R session:</p>
 <pre class="r"><code>bamako &lt;- read_csv(&quot;data/Bamako.csv&quot;)</code></pre>
 <p>The data in Figure 7.12 below represents samples taken over a period of 25 hours of production.</p>
 <pre class="r"><code>knitr::kable(head(bamako), caption = &quot;Figure 7.12&quot;)</code></pre>
@@ -480,6 +491,11 @@ div.tocify {
 ##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
 <p>Afterwards, the production samples can be assessed against those limits and the control chart rules can be verified. In this example the shewhart rules are used.</p>
 <p>In the graphic below the control limits are calculated according to the selected duration of the calibration run. The runs breaking the shewhart rules are re-evaluated when control limits change.</p>
+<div id="refs" class="references">
+<div id="ref-Bass2007">
+<p>Bass, Issa. 2007. <em>Six Sigma Statistics with Excel and Minitab</em>. 1st ed. McGraw-Hill.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -530,7 +546,7 @@ $(document).ready(function ()  {
 
     // establish options
     var options = {
-      selectors: "h1,h2,h3",
+      selectors: "h1,h2",
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {

@@ -4,16 +4,30 @@ output:
   html_document:
     css: www/style.css
     toc: yes
-    toc_depth: 3
+    toc_depth: 2
     toc_float: yes
+bibliography: book.bib  
+
 ---
-![](img/i4dot0icon_30.png)
+![](img/i4dot0icon_20.png)
    
 # industRial statistics
 
-This a journal on practical applications of data science and statistical tools to Product Development and Manufacturing.
+This journal provides practical examples on how to use Data Science tools and techniques in New Product Development and Manufacturing. 
 
+Abundant literature exists on both Data Science and on Product Development but in our view there are not enough transferable examples on how to benefit from recent R libraries in this area. Product Engineering and Manufacturing are very important activities in society because bringing innovative products to the market has an immense potential to improve the quality of life of everyone. Data Science brings new powerful approaches to the engineering and manufacturing of Consumer Goods and other Products helping minimizing their environmental impact and deliver optimal quality features at an affordable cost.
 
+We aim at providing only directly applicable cases, similar to a cookbook approach. from a solid background in all related disciplines (e.g. design for six sigma, statistics and computer programming).
+
+Theses case studies come from varied industries where repetitive manufacturing in massive quantities is involved, such as:
+
++ pharmaceuticals
++ food
++ electronics
++ watch making
++ automotive
+
+All the case studies are either fully anonymized or published the with the agreement of the originators for which the sources are clearly identified.
 
 ```{r, child="_spc.Rmd"}
 ```
