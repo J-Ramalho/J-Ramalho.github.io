@@ -387,7 +387,7 @@ div.tocify {
 <p>All the case studies are either fully anonymized or published the with the agreement of the originators for which the sources are clearly identified.</p>
 <div id="statistical-process-control-spc" class="section level2">
 <h2>Statistical Process Control (SPC)</h2>
-<p>Bamako Lightening <span class="citation">(Bass 2007)</span> is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts.</p>
+<p>Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts.</p>
 <p>We start by loading it in our R session:</p>
 <pre class="r"><code>bamako &lt;- read_csv(&quot;data/Bamako.csv&quot;)</code></pre>
 <p>The data in Figure 7.12 below represents samples taken over a period of 25 hours of production.</p>
@@ -466,31 +466,30 @@ div.tocify {
 <h3>xbar and R charts</h3>
 <p>To plot the control chart we can use the qcc package.</p>
 <pre class="r"><code>library(qcc)</code></pre>
-<pre><code>## Warning: package &#39;qcc&#39; was built under R version 3.6.3</code></pre>
 <pre><code>## Package &#39;qcc&#39; version 2.7</code></pre>
 <pre><code>## Type &#39;citation(&quot;qcc&quot;)&#39; for citing this R package in publications.</code></pre>
 <p>Before entering regular production it is recommended to run a “calibration run”. The calibration run is used to calculate the control limits.</p>
 <pre class="r"><code>qcc(bamako[1:5,], type = &quot;xbar&quot;)</code></pre>
-<pre><code>## Warning in data.matrix(data): NAs introduits lors de la conversion automatique</code></pre>
 <p><img src="istats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre><code>## List of 11
 ##  $ call      : language qcc(data = bamako[1:5, ], type = &quot;xbar&quot;)
 ##  $ type      : chr &quot;xbar&quot;
 ##  $ data.name : chr &quot;bamako[1:5, ]&quot;
-##  $ data      : num [1:5, 1:7] NA NA NA NA NA ...
+##  $ data      : num [1:5, 1:7] 1 2 3 4 5 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##  $ statistics: Named num [1:5] 9.99 9.98 10.02 10.03 9.99
+##  $ statistics: Named num [1:5] 8.7 8.84 9.01 9.17 9.27
 ##   ..- attr(*, &quot;names&quot;)= chr [1:5] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
-##  $ sizes     : int [1:5] 6 6 6 6 6
-##  $ center    : num 10
-##  $ std.dev   : num 0.0386
+##  $ sizes     : int [1:5] 7 7 7 7 7
+##  $ center    : num 9
+##  $ std.dev   : num 2.6
 ##  $ nsigmas   : num 3
-##  $ limits    : num [1, 1:2] 9.95 10.05
+##  $ limits    : num [1, 1:2] 6.05 11.95
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##  $ violations:List of 2
 ##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
 <p>Afterwards, the production samples can be assessed against those limits and the control chart rules can be verified. In this example the shewhart rules are used.</p>
 <p>In the graphic below the control limits are calculated according to the selected duration of the calibration run. The runs breaking the shewhart rules are re-evaluated when control limits change.</p>
+<p>Adapted from <span class="citation">(Bass 2007)</span></p>
 <div id="refs" class="references">
 <div id="ref-Bass2007">
 <p>Bass, Issa. 2007. <em>Six Sigma Statistics with Excel and Minitab</em>. 1st ed. McGraw-Hill.</p>
@@ -500,6 +499,15 @@ div.tocify {
 </div>
 </div>
 
+<hr>
+<div>
+  <a href="https://www.linkedin.com/in/joaoramalho/" target="_blank">
+    <img src="img/linkedin_2.png"/>
+  </a>
+  <a href="https://github.com/J-Ramalho" target="_blank">
+    <img src="img/github_2.png"/>
+  </a>
+</div>
 
 
 </div>

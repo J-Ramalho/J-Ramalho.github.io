@@ -6,4 +6,9 @@ navbar:
       href: index.html
     - text: "industRial statistics"
       href: istats.html
+output:
+  html_document:
+    css: www/style.css
+    include:
+      after_body: footer.html
 output_dir: "docs"

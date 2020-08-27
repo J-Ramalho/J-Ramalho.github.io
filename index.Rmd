@@ -1,27 +1,26 @@
 ---
 pagetitle: "Profile"
-output:
-  html_document:
-    css: www/style.css
 ---
-
-```{r echo = FALSE, warning = FALSE}
-# Web address for this book
-# https://j-ramalho.github.io/industRialstatistics/
+```{r setup, echo = FALSE, warning = FALSE}
+# Web address for this site
+# https://j-ramalho.github.io/
 
 library(htmltools)
-    div(img(
-          src = "img/JR.png",
-          alt = "Jo\u00E3o Ramalho",
-          style = "border-radius: 100%"
-      ),
-      div(
-        h1("Jo\u00E3o Ramalho"),
+```
+
+```{r, echo = FALSE, warning = FALSE}
+
+div(img(src = "img/JR.png",
+        alt = "Jo\u00E3o Ramalho",
+        style = "border-radius: 100%"
+        ),
+    div(h1("Jo\u00E3o Ramalho"),
         h3("Industrial Data Scientist")
       )
     )
 ```
 
 João has more than 20 years of experience in the manufacturing industry. Having held numerous positions in R&D, Operations and IT at Philip Morris, Rolex and Nestlé, he has an exceptionally large view of how consumer goods are conceived, industrialized and manufactured. He holds a Master in Mechanical Engineering from the [IST](http://ist.pt/), a Project Management certification from [PMI](https://www.pmi.org/) and a Data Science certification from [DataCamp](https://www.datacamp.com/). He's currently specializing in Data Visualization at the Swiss technical university [EPFL](https://www.extensionschool.ch/).
+
 
 

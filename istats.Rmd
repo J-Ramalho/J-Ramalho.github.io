@@ -2,7 +2,6 @@
 pagetitle: "industRial statistics"
 output:
   html_document:
-    css: www/style.css
     toc: yes
     toc_depth: 2
     toc_float: yes
