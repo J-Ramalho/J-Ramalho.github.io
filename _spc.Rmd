@@ -2,28 +2,54 @@
 pagetitle: "spc"
 ---
 
-## Statistical Process Control (SPC)
+## SPC - Statistical Process Control
 
-Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. 
+Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. Data is available representing samples taken a period of 25 hours of production.
 
-We start by loading it in our R session:
-```{r message = FALSE}
-bamako <- read_csv("data/Bamako.csv")
+We start by loading a csv file from our github repository into our R session:
+```{r}
+bamako <- readr::read_csv(
+  file = "https://raw.githubusercontent.com/J-Ramalho/J-Ramalho.github.io/master/data/Bamako.csv")
 ```
+From the message we got it seems the loading has worked fine as all columns have been parsed with type double.
 
-The data in Figure 7.12 below represents samples taken over a period of 25 hours of production.
-
+In any case we're going to take a look at the first five lines to confirm this and also to assess the quality of our data for further processing. For that we're going to use the function 
 ```{r}
 knitr::kable(head(bamako), caption = "Figure 7.12")
 ```
 
+We see that each line corresponds to a sampling hour and each column corresponds to a sample number. The data in this case is clean and ready to be taken over to the next step.
 
 ### xbar and  R charts
 
-To plot the control chart we can use the qcc package.
+We've selected the package {qcc} to create the control charts in this case and now we're loading it:
 ```{r}
 library(qcc)
 ```
+
+Using the first 6 samples as training data, an xbar chart can be obtained as follows:
+
+```{r}
+bamako2 <- with(bamako, qcc.groups(bamako, sample))
+
+bamako_spc <- bamako %>%
+  qcc(type = "xbar")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Before entering regular production it is recommended to run a "calibration run". The calibration run is used to calculate the control limits. 
 
