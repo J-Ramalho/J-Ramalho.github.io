@@ -385,109 +385,142 @@ div.tocify {
 <li>automotive</li>
 </ul>
 <p>All the case studies are either fully anonymized or published the with the agreement of the originators for which the sources are clearly identified.</p>
-<div id="statistical-process-control-spc" class="section level2">
-<h2>Statistical Process Control (SPC)</h2>
-<p>Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts.</p>
-<p>We start by loading it in our R session:</p>
-<pre class="r"><code>bamako &lt;- read_csv(&quot;data/Bamako.csv&quot;)</code></pre>
-<p>The data in Figure 7.12 below represents samples taken over a period of 25 hours of production.</p>
-<pre class="r"><code>knitr::kable(head(bamako), caption = &quot;Figure 7.12&quot;)</code></pre>
-<table>
-<caption>Figure 7.12</caption>
-<thead>
-<tr class="header">
-<th align="left">Hour</th>
-<th align="right">Sample1</th>
-<th align="right">Sample2</th>
-<th align="right">Sample3</th>
-<th align="right">Sample4</th>
-<th align="right">Sample5</th>
-<th align="right">Sample6</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Hour1</td>
-<td align="right">9.9943</td>
-<td align="right">10.0196</td>
-<td align="right">9.9732</td>
-<td align="right">10.0088</td>
-<td align="right">9.9685</td>
-<td align="right">9.9544</td>
-</tr>
-<tr class="even">
-<td align="left">Hour2</td>
-<td align="right">9.9721</td>
-<td align="right">9.9643</td>
-<td align="right">9.9426</td>
-<td align="right">9.9712</td>
-<td align="right">10.0259</td>
-<td align="right">10.0177</td>
-</tr>
-<tr class="odd">
-<td align="left">Hour3</td>
-<td align="right">9.9788</td>
-<td align="right">10.0213</td>
-<td align="right">9.9407</td>
-<td align="right">10.0696</td>
-<td align="right">10.0161</td>
-<td align="right">10.0709</td>
-</tr>
-<tr class="even">
-<td align="left">Hour4</td>
-<td align="right">10.0658</td>
-<td align="right">10.0800</td>
-<td align="right">9.9514</td>
-<td align="right">9.9958</td>
-<td align="right">10.0338</td>
-<td align="right">10.0422</td>
-</tr>
-<tr class="odd">
-<td align="left">Hour5</td>
-<td align="right">10.0136</td>
-<td align="right">9.9791</td>
-<td align="right">9.9449</td>
-<td align="right">9.9403</td>
-<td align="right">10.0124</td>
-<td align="right">10.0221</td>
-</tr>
-<tr class="even">
-<td align="left">Hour6</td>
-<td align="right">10.0295</td>
-<td align="right">10.0057</td>
-<td align="right">9.9715</td>
-<td align="right">10.0388</td>
-<td align="right">10.0019</td>
-<td align="right">9.9616</td>
-</tr>
-</tbody>
-</table>
+<div id="spc---statistical-process-control" class="section level2">
+<h2>SPC - Statistical Process Control</h2>
+<p>Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. Data is available representing samples taken a period of 25 hours of production.</p>
+<p>Start by loading a csv file from our github repository into our R session:</p>
+<pre class="r"><code>bamako &lt;- readr::read_csv(
+  file = &quot;https://raw.githubusercontent.com/J-Ramalho/J-Ramalho.github.io/master/data/Bamako.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Hour = col_character(),
+##   Sample1 = col_double(),
+##   Sample2 = col_double(),
+##   Sample3 = col_double(),
+##   Sample4 = col_double(),
+##   Sample5 = col_double(),
+##   Sample6 = col_double()
+## )</code></pre>
+<p>The message shows that the loading has worked correctly as all columns have been parsed with type double. Looking at the first five lines to confirm and assess the quality of our data for further processing.</p>
+<pre class="r"><code>head(bamako)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   Hour  Sample1 Sample2 Sample3 Sample4 Sample5 Sample6
+##   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1 Hour1    9.99   10.0     9.97   10.0     9.97    9.95
+## 2 Hour2    9.97    9.96    9.94    9.97   10.0    10.0 
+## 3 Hour3    9.98   10.0     9.94   10.1    10.0    10.1 
+## 4 Hour4   10.1    10.1     9.95   10.0    10.0    10.0 
+## 5 Hour5   10.0     9.98    9.94    9.94   10.0    10.0 
+## 6 Hour6   10.0    10.0     9.97   10.0    10.0     9.96</code></pre>
+<p>In this table each line corresponds to a sampling hour and each column corresponds to a sample number.</p>
 <div id="xbar-and-r-charts" class="section level3">
 <h3>xbar and R charts</h3>
-<p>To plot the control chart we can use the qcc package.</p>
+<p>The package {qcc} has been selected to create the control charts.</p>
 <pre class="r"><code>library(qcc)</code></pre>
 <pre><code>## Package &#39;qcc&#39; version 2.7</code></pre>
 <pre><code>## Type &#39;citation(&quot;qcc&quot;)&#39; for citing this R package in publications.</code></pre>
-<p>Before entering regular production it is recommended to run a “calibration run”. The calibration run is used to calculate the control limits.</p>
-<pre class="r"><code>qcc(bamako[1:5,], type = &quot;xbar&quot;)</code></pre>
-<p><img src="istats_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The chart ploting function qcc() already considers that each line corresponds to a sampling event and requires as argument a table containing only the sampling values. For that the Hour column has to be removed.</p>
+<pre class="r"><code>bamako_clean &lt;- bamako %&gt;% dplyr::select(-Hour)</code></pre>
+<p>Before entering regular production it is recommended to run a “calibration run”. The calibration run is used to calculate the control limits. Using the first 10 samples a default Shewart xbar chart can be obtained as follows:</p>
+<pre class="r"><code>qcc(bamako_clean[1:10, ], 
+    type = &quot;xbar&quot;, 
+    title = &quot;Lamp weight \n xbar chart&quot;, 
+    xlab = &quot;Sample group&quot;)</code></pre>
+<p><img src="istats_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre><code>## List of 11
-##  $ call      : language qcc(data = bamako[1:5, ], type = &quot;xbar&quot;)
+##  $ call      : language qcc(data = bamako_clean[1:10, ], type = &quot;xbar&quot;, title = &quot;Lamp weight \n xbar chart&quot;,      xlab = &quot;Sample group&quot;)
 ##  $ type      : chr &quot;xbar&quot;
-##  $ data.name : chr &quot;bamako[1:5, ]&quot;
-##  $ data      : num [1:5, 1:7] 1 2 3 4 5 ...
+##  $ data.name : chr &quot;bamako_clean[1:10, ]&quot;
+##  $ data      : num [1:10, 1:6] 9.99 9.97 9.98 10.07 10.01 ...
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
-##  $ statistics: Named num [1:5] 8.7 8.84 9.01 9.17 9.27
-##   ..- attr(*, &quot;names&quot;)= chr [1:5] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
-##  $ sizes     : int [1:5] 7 7 7 7 7
-##  $ center    : num 9
-##  $ std.dev   : num 2.6
+##  $ statistics: Named num [1:10] 9.99 9.98 10.02 10.03 9.99 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:10] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes     : int [1:10] 6 6 6 6 6 6 6 6 6 6
+##  $ center    : num 10
+##  $ std.dev   : num 0.0402
 ##  $ nsigmas   : num 3
-##  $ limits    : num [1, 1:2] 6.05 11.95
+##  $ limits    : num [1, 1:2] 9.95 10.05
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations:List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
+<pre class="r"><code>qcc(bamako_clean[1:10, ], 
+    type = &quot;R&quot;, 
+    title = &quot;Lamp weight \n R chart&quot;,
+    xlab = &quot;Sample group&quot;)</code></pre>
+<p><img src="istats_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<pre><code>## List of 11
+##  $ call      : language qcc(data = bamako_clean[1:10, ], type = &quot;R&quot;, title = &quot;Lamp weight \n R chart&quot;,      xlab = &quot;Sample group&quot;)
+##  $ type      : chr &quot;R&quot;
+##  $ data.name : chr &quot;bamako_clean[1:10, ]&quot;
+##  $ data      : num [1:10, 1:6] 9.99 9.97 9.98 10.07 10.01 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics: Named num [1:10] 0.0652 0.0833 0.1302 0.1286 0.0818 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:10] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes     : int [1:10] 6 6 6 6 6 6 6 6 6 6
+##  $ center    : num 0.102
+##  $ std.dev   : num 0.0402
+##  $ nsigmas   : num 3
+##  $ limits    : num [1, 1:2] 0 0.204
 ##   ..- attr(*, &quot;dimnames&quot;)=List of 2
 ##  $ violations:List of 2
 ##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
 <p>Afterwards, the production samples can be assessed against those limits and the control chart rules can be verified. In this example the shewhart rules are used.</p>
+<pre class="r"><code>qcc(data = bamako_clean[1:10, ],
+    newdata = bamako_clean[11:25,],
+    type = &quot;xbar&quot;, 
+    title = &quot;Lamp weight \n xbar chart&quot;, 
+    xlab = &quot;Sample group&quot;)</code></pre>
+<p><img src="istats_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre><code>## List of 15
+##  $ call        : language qcc(data = bamako_clean[1:10, ], type = &quot;xbar&quot;, newdata = bamako_clean[11:25,      ], title = &quot;Lamp weight \n xba| __truncated__
+##  $ type        : chr &quot;xbar&quot;
+##  $ data.name   : chr &quot;bamako_clean[1:10, ]&quot;
+##  $ data        : num [1:10, 1:6] 9.99 9.97 9.98 10.07 10.01 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics  : Named num [1:10] 9.99 9.98 10.02 10.03 9.99 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:10] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes       : int [1:10] 6 6 6 6 6 6 6 6 6 6
+##  $ center      : num 10
+##  $ std.dev     : num 0.0402
+##  $ newstats    : Named num [1:15] 9.98 9.99 10.01 10.01 10.02 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:15] &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; ...
+##  $ newdata     : num [1:15, 1:6] 9.94 10.01 10.01 9.98 10.03 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ newsizes    : int [1:15] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ newdata.name: chr &quot;bamako_clean[11:25, ]&quot;
+##  $ nsigmas     : num 3
+##  $ limits      : num [1, 1:2] 9.95 10.05
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations  :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
+<pre class="r"><code>qcc(data = bamako_clean[1:10, ],
+    newdata = bamako_clean[11:25,], 
+    type = &quot;R&quot;, 
+    title = &quot;Lamp weight \n R chart&quot;,
+    xlab = &quot;Sample group&quot;)</code></pre>
+<p><img src="istats_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre><code>## List of 15
+##  $ call        : language qcc(data = bamako_clean[1:10, ], type = &quot;R&quot;, newdata = bamako_clean[11:25,      ], title = &quot;Lamp weight \n R char| __truncated__
+##  $ type        : chr &quot;R&quot;
+##  $ data.name   : chr &quot;bamako_clean[1:10, ]&quot;
+##  $ data        : num [1:10, 1:6] 9.99 9.97 9.98 10.07 10.01 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ statistics  : Named num [1:10] 0.0652 0.0833 0.1302 0.1286 0.0818 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:10] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ sizes       : int [1:10] 6 6 6 6 6 6 6 6 6 6
+##  $ center      : num 0.102
+##  $ std.dev     : num 0.0402
+##  $ newstats    : Named num [1:15] 0.1202 0.1434 0.0638 0.0946 0.1016 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:15] &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot; ...
+##  $ newdata     : num [1:15, 1:6] 9.94 10.01 10.01 9.98 10.03 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ newsizes    : int [1:15] 6 6 6 6 6 6 6 6 6 6 ...
+##  $ newdata.name: chr &quot;bamako_clean[11:25, ]&quot;
+##  $ nsigmas     : num 3
+##  $ limits      : num [1, 1:2] 0 0.204
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##  $ violations  :List of 2
+##  - attr(*, &quot;class&quot;)= chr &quot;qcc&quot;</code></pre>
 <p>In the graphic below the control limits are calculated according to the selected duration of the calibration run. The runs breaking the shewhart rules are re-evaluated when control limits change.</p>
 <p>Adapted from <span class="citation">(Bass 2007)</span></p>
 <div id="refs" class="references">
