@@ -4,8 +4,8 @@ navbar:
   left:
     - text: "Profile"
       href: index.html
-    - text: "industRial statistics"
-      href: istats.html
+    - text: "SciFi"
+      href: scifi.html
 output:
   html_document:
     css: www/style.css
