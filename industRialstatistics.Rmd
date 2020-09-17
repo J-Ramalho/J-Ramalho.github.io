@@ -1,0 +1,19 @@
+---
+pagetitle: "industRialAI"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(magick)
+```
+
+<img src="img/industrialstats_cover.png" width="400">
+
+### industRial statistics
+
+Here is a book with case studies in product development and manufacturing with R.
+
+[link](https://j-ramalho.github.io/industRialstatistics/)
+
+This book capitalises on more than two decades of experience in the industry and to collect insights from visits to more than fifty different manufacturing plants. Its examples come from real cases from many different types of products. Some are from consumer goods like watches, cigarettes and plastic bags. Some are from utilities like electricity and gas. Some are from engineering like automotive and machine tools.

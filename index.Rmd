@@ -1,26 +1,21 @@
 ---
-pagetitle: "Profile"
+pagetitle: "industRialAI"
 ---
-```{r setup, echo = FALSE, warning = FALSE}
-# Web address for this site
-# https://j-ramalho.github.io/
 
-library(htmltools)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo = FALSE, warning = FALSE}
+### a journal on opportunities for transforming the industrial landscape
 
-div(img(src = "img/JR.png",
-        alt = "Jo\u00E3o Ramalho",
-        style = "border-radius: 100%"
-        ),
-    div(h1("Jo\u00E3o Ramalho"),
-        h3("Industrial Data Scientist")
-      )
-    )
-```
+### 17.09.2020 
+#### Desmounting criticism on the industry
 
-João has more than 20 years of experience in the manufacturing industry. Having held numerous positions in R&D, Operations and IT at Philip Morris, Rolex and Nestlé, he has an exceptionally large view of how consumer goods are conceived, industrialized and manufactured. He holds a Master in Mechanical Engineering from the [IST](http://ist.pt/), a Project Management certification from [PMI](https://www.pmi.org/) and a Data Science certification from [DataCamp](https://www.datacamp.com/). He's currently specializing in Data Visualization at the Swiss technical university [EPFL](https://www.extensionschool.ch/).
+Everyday I read and hear criticism about the industry and its negative impacts in the environment and the society. But the industry is just the expression of our innate drive to optimise our processes. The moment we start repeating some activity is the moment we start searching ways to improve its performance.
 
 
+### 16.09.2020
+#### Natural language processing in the coorporate world
+
+I see gigantic opportunities for nlp implementations in the corporate world. We spend enourmous amounts of time trying to recall stuff, trying to classify information and looking for trade offs and sweet spots. Meaning and sense having been continuously being capture in words and data for centuries but we've arrived at a moment where I see a tipping point. Computers are now able to transforming raw text into some sort of sense, store and retrieve that sense and assist us in taking decisions with it. This is not an issue and I don't believe we're loosing authonomy, its just us climbing the ladder of abstraction and moving into a level where we have to be more creative and execute less. We have to spend more time contemplating and less time doing. And by contemplating I don't mean being static, for example we can contemplate while riding our bike. Its even needed to enlarge our viewpoint. If we make an analogy with our professional life, riding means writting a memo, giving a talk, participating in a meeting to take decisions.
 

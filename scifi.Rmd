@@ -1,0 +1,37 @@
+---
+pagetitle: "SciFi"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(readxl)
+library(magick)
+
+source("card_functions.R")
+
+title_panel <- get_title_panel()
+
+exec_team <- read_excel("list_scifi.xlsx")
+scifi_cards <- get_cards_component(exec_team)
+```
+
+---
+title: `r title_panel`
+---
+
+I've always been a huge fan of Science Fiction novels which I've been reading since my childhood. Below are some of my favorites, from the big collection I got from my mom.
+
+```{r}
+scifi_cards
+```
+
+
+
+
+
+
+
+
