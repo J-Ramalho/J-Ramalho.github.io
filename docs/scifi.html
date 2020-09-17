@@ -11,7 +11,7 @@
 
 
 
-<title>Profile</title>
+<title>SciFi</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -249,6 +252,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -256,6 +322,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -290,18 +366,46 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore"><h1>
+Amazon Inc.
+<br/>
+<small class="text-muted text-primary">2019 Annual Report</small>
+</h1></h1>
 
 </div>
 
 
-<div>
-<img src="img/JR.png" alt="João Ramalho" style="border-radius: 100%"/>
-<div>
-<h1>João Ramalho</h1>
-<h3>Industrial Data Scientist</h3>
+<p><img src="img/the-three-body-problem.jpg" alt="The Three Body Problem" width="300"></p>
+<div id="science-fiction" class="section level1">
+<h1>Science Fiction</h1>
+<p>I’ve always been a huge fan of Science Fiction. I’ve been reading it since my childhood and I’ve inherited a full collection of pocket books from my mom.</p>
+<div class="card-wrapper">
+  <div class="card">
+    <img class="card-img-top" src="img_scifi/clarke_childhoodsend.jpg" alt="Arthur C.Clarke" width="100"/>
+    <div class="card-body">
+      <h5 class="card-title">Arthur C.Clarke</h5>
+      <p class="card-text">Childhoods end</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img_scifi/asimov_robotdreams.jpg" alt="Isaac Asimov" width="100"/>
+    <div class="card-body">
+      <h5 class="card-title">Isaac Asimov</h5>
+      <p class="card-text">Robot Dreams</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="img_scifi/leguin_thedispossessed.jpg" alt="Ursula LeGuin" width="100"/>
+    <div class="card-body">
+      <h5 class="card-title">Ursula LeGuin</h5>
+      <p class="card-text">The dispossessed</p>
+    </div>
+  </div>
 </div>
+<p>Novels</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis</p>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 </div>
-<p>João has more than 20 years of experience in the manufacturing industry. Having held numerous positions in R&amp;D, Operations and IT at Philip Morris, Rolex and Nestlé, he has an exceptionally large view of how consumer goods are conceived, industrialized and manufactured. He holds a Master in Mechanical Engineering from the <a href="http://ist.pt/">IST</a>, a Project Management certification from <a href="https://www.pmi.org/">PMI</a> and a Data Science certification from <a href="https://www.datacamp.com/">DataCamp</a>. He’s currently specializing in Data Visualization at the Swiss technical university <a href="https://www.extensionschool.ch/">EPFL</a>.</p>
 
 <hr>
 <div>
@@ -314,6 +418,8 @@ $(document).ready(function () {
 </div>
 
 
+</div>
+</div>
 
 </div>
 
@@ -346,6 +452,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
