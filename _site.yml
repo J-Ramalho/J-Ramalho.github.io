@@ -1,13 +1,13 @@
 name: "my-website"
 navbar:
-  title: "Lije Baley"
+  title: "EMERGING FACTORY"
   left:
-    - text: "Applications"
+    - text: "Industrial AI"
       href: index.html
-    - text: "Risk Management"
-      href: risks.html
-    - text: "industRialstatistics"
+    - text: "Industrial Statistics"
       href: industRialstatistics.html
+    - text: "NLP for Risk Management"
+      href: risks.html
     - text: "SciFi"
       href: scifi.html
     - text: "Contact"

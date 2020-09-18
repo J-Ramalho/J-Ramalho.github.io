@@ -1,26 +1,27 @@
----
-pagetitle: "Risk Management"
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(htmltools)
 ```
 
-```{r, echo = FALSE, warning = FALSE}
+```{r}
 
-div(img(src = "img/mountaintop.png",
+div(
+  br(),
+  img(src = "img/mountaintop.png",
         alt = "sharpRISK",
         style = "border-radius: 100%",
         width = "100"
         ),
-    div(h1("sharpRISK"),
-        h4("risk management with natural language processing")
+    div(h1("NLP for Risk Management"),
+        h4("Risk management with natural language processing")
       )
     )
 ```
 
 sharpRISK aims transforming risk management in the manufacturing industry. 
-It combines well established risk identification and mitigation approaches with new natural language processing capabilities.
+A demo version can be tested at the demo site:
 
-sharpRISK can be fully tested at its [demo site](https://red-datafactory.shinyapps.io/sharprisk/)
+[demo site](https://red-datafactory.shinyapps.io/sharprisk/)  
+
+sharpRISK combines well established risk identification and mitigation approaches with new natural language processing capabilities.

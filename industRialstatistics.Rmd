@@ -1,16 +1,24 @@
----
-pagetitle: "industRialAI"
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(dplyr)
-library(magick)
+```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(htmltools)
 ```
 
-<img src="img/industrialstats_cover.png" width="400">
 
-### industRial statistics
+```{r}
+div(
+  br(),
+  img(src = "img/industrialstats_cover.png",
+        alt = "",
+        style = "border-radius: 100%",
+        width = "200",
+        height = "150"
+        ),
+  div(h1("Industrial Statistics"),
+        h3("Case Studies in Product Development and Manufacturing with R")
+      )
+    )
+```
 
 Here is a book with case studies in product development and manufacturing with R.
 

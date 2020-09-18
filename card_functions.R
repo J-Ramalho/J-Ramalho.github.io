@@ -1,20 +1,16 @@
-library("dplyr")
-library("htmltools")
+library(htmltools)
+library(dplyr)
+library(shiny)
 
-get_title_panel <- function() {
-  h1("Science Fiction",
-     tags$br(),
-     tags$small("Novels to stimulate innovation and progress",
-                class = "text-muted text-primary"))
-}
 
-exec_card_component <- function(name, title, portrait) {
+card_component <- function(name, title, portrait) {
   div(
     class = "card",
     img(class = "card-img-top",
         src = portrait,
         alt = name,
-        width = "200"),
+        width = "200",
+        height = "280"),
     div(
       class = "card-body",
       h5(class = "card-title",
@@ -23,12 +19,11 @@ exec_card_component <- function(name, title, portrait) {
         title)
     )
   )
-  
 }
 
-get_cards_component <- function(data) {
+get_cards <- function(data) {
   data %>%
-    purrr::pmap(exec_card_component) %>%
+    purrr::pmap(card_component) %>%
     div(class = "card-wrapper") %>%
     doRenderTags()
 }

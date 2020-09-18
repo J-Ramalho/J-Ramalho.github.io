@@ -1,15 +1,32 @@
 ---
-pagetitle: "industRialAI"
+pagetitle: "IndustRial AI"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(htmltools)
 ```
 
-### Natural language processing in the corporate world, 17.09.2020
 
-There are gigantic opportunities for nlp implementations in the corporate world. We spend enourmous amounts of time trying to recall stuff, trying to classify information and looking for trade offs and sweet spots. Meaning and sense having been continuously being capture in words and data for centuries but we've arrived at a moment where I see a tipping point. Computers are now able to transforming raw text into some sort of sense, store and retrieve that sense and assist us in taking decisions with it. This is not an issue and I don't believe we're loosing authonomy, its just us climbing the ladder of abstraction and moving into a level where we have to be more creative and execute less. We have to spend more time contemplating and less time doing. And by contemplating I don't mean being static, for example we can contemplate while riding our bike. Its even needed to enlarge our viewpoint. If we make an analogy with our professional life, riding means writting a memo, giving a talk, participating in a meeting to take decisions.
+```{r}
+div(
+  br(),
+  img(src = "img/industrial_brain.png",
+        alt = "",
+        style = "border-radius: 100%",
+        width = "100",
+        height = "100"
+        ),
+  div(h1("Industrial AI"),
+        h3("A journal on upcoming industrial applications of Artificial Intelligence")
+      )
+    )
+```
 
-### Lightless factory, 16.09.2020
+***
 
-A pot
+#### Natural language processing in the corporate world, 17.09.2020
+
+There are gigantic opportunities for nlp implementations in the corporate world. We spend enourmous amounts of time trying to recall stuff, trying to classify information and looking for trade offs and sweet spots. Meaning and sense having been continuously being captured in words and data for centuries but we've arrived at a moment where there is a tipping point. Computers are now able to transforming raw text into some sort of sense, store and retrieve that sense and assist us in taking decisions with it. This is not an issue and I don't believe we're loosing authonomy, its just us climbing the ladder of abstraction and moving into a level where we have to be more creative and execute less. We have to spend more time contemplating and less time doing. And by contemplating I don't mean being static, for example we can contemplate while riding our bike. Its even needed to enlarge our viewpoint. If we make an analogy with our professional life, riding means writting a memo, giving a talk, participating in a meeting to take decisions.
+
+

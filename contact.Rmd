@@ -1,21 +1,21 @@
 ---
-pagetitle: "Profile"
+pagetitle: "Contact"
 ---
 
-```{r setup, echo = FALSE, warning = FALSE}
-# Web address for this site
-# https://j-ramalho.github.io/
-
+```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(htmltools)
 ```
 
-```{r, echo = FALSE, warning = FALSE}
 
-div(img(src = "img/JR.png",
+```{r}
+div(
+  br(),
+  img(src = "img/JR.png",
         alt = "Jo\u00E3o Ramalho",
         style = "border-radius: 100%"
         ),
-    div(h1("Jo\u00E3o Ramalho"),
+  div(h1("Jo\u00E3o Ramalho"),
         h3("Industrial Data Scientist")
       )
     )
