@@ -22,7 +22,7 @@ scifi_cards <- get_cards_component(exec_team)
 title: `r title_panel`
 ---
 
-I've always been a huge fan of Science Fiction novels which I've been reading since my childhood. Below are some of my favorites, from the big collection I got from my mom.
+Science Fiction is an immense source of ideas for innovation. Below some key novels where imaginative applications artificial intelligence and technical breakthroughs help us defining directions for future projects.
 
 ```{r}
 scifi_cards

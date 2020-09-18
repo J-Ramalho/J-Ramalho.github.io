@@ -1,15 +1,17 @@
 name: "my-website"
 navbar:
-  title: "João Ramalho"
+  title: "Lije Baley"
   left:
-    - text: "industRialAI"
+    - text: "Applications"
       href: index.html
+    - text: "Risk Management"
+      href: risks.html
     - text: "industRialstatistics"
       href: industRialstatistics.html
     - text: "SciFi"
       href: scifi.html
-    - text: "Profile"
-      href: profile.html
+    - text: "Contact"
+      href: contact.html
 output:
   html_document:
     css: www/style.css

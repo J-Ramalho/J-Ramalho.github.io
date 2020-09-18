@@ -4,7 +4,7 @@ library("htmltools")
 get_title_panel <- function() {
   h1("Science Fiction",
      tags$br(),
-     tags$small("Novels to open the mind",
+     tags$small("Novels to stimulate innovation and progress",
                 class = "text-muted text-primary"))
 }
 
@@ -21,8 +21,7 @@ exec_card_component <- function(name, title, portrait) {
          name),
       p(class = "card-text",
         title)
-    ),
-    tags$br()  
+    )
   )
   
 }
