@@ -1,15 +1,13 @@
-name: "my-website"
+name: "Emerging Factory"
 navbar:
   title: "EMERGING FACTORY"
   left:
-    - text: "Industrial AI"
+    - text: "Home"
       href: index.html
-    - text: "Industrial Statistics"
-      href: industRialstatistics.html
-    - text: "NLP for Risk Management"
-      href: risks.html
-    - text: "SciFi"
-      href: scifi.html
+    - text: "News"
+      href: news.html
+    - text: "Applications"
+      href: applications.html
     - text: "Contact"
       href: contact.html
 output:
