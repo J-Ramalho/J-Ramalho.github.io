@@ -1,0 +1,74 @@
+---
+pagetitle: "EF | News"
+---
+
+```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+library(htmltools)
+library(readxl)
+```
+
+```{r}
+div(
+  br(),
+  img(src = "img/industrial_brain.png",
+        alt = "",
+        style = "border-radius: 100%",
+        width = "100",
+        height = "100"
+        ),
+  div(h1("Industrial AI news"),
+        h3("Upcoming applications of Artificial Intelligence in the manufacturing industry")
+      )
+    )
+```
+   
+***
+   
+#### 17.09.2020, Natural language processing in the corporate world
+
+There are gigantic opportunities for nlp implementations in the corporate world. We spend enourmous amounts of time trying to recall stuff, trying to classify information and looking for trade offs and sweet spots. Meaning and sense having been continuously being captured in words and data for centuries but we've arrived at a moment where there is a tipping point. Computers are now able to transforming raw text into some sort of sense, store and retrieve that sense and assist us in taking decisions with it. This is not an issue and I don't believe we're loosing authonomy, its just us climbing the ladder of abstraction and moving into a level where we have to be more creative and execute less. We have to spend more time contemplating and less time doing. And by contemplating I don't mean being static, for example we can contemplate while riding our bike. Its even needed to enlarge our viewpoint. If we make an analogy with our professional life, riding means writting a memo, giving a talk, participating in a meeting to take decisions.
+   
+***
+   
+#### 11.09.2020, Science fiction novels influence innovation and technology
+
+Science Fiction is an immense source of ideas for innovation. Below are some key novels with imaginative applications of artificial intelligence and technical breakthroughs that help us defining directions for future projects.
+
+```{r}
+source("card_functions.R")
+scifi_list <- read_excel("list_scifi.xlsx")
+scifi_cards <- get_cards(scifi_list)
+scifi_cards
+```
+
+***
+
+#### Book: Industrial Statistics, Case Studies in Product Development and Manufacturing with R
+
+```{r}
+div(
+  br(),
+  img(src = "img/industrialstats_cover.png",
+        alt = "",
+        style = "border-radius: 100%",
+        width = "200",
+        height = "150"
+        )
+  # ,
+  # div(h1("Book"),
+  #       h3("Case Studies in Product Development and Manufacturing with R")
+  #     )
+    )
+```
+
+This book capitalises on more than two decades of experience in the industry and to collect insights from visits to more than fifty different manufacturing plants. Its examples come from real cases from many different types of products. Some are from consumer goods like watches, cigarettes and plastic bags. Some are from utilities like electricity and gas. Some are from engineering like automotive and machine tools.
+
+[e-book](https://j-ramalho.github.io/industRialstatistics/)
+
+
+
+
+
+
+

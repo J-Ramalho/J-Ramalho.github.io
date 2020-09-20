@@ -10,7 +10,7 @@ card_component <- function(name, title, portrait) {
         src = portrait,
         alt = name,
         width = "200",
-        height = "280"),
+        height = "200"),
     div(
       class = "card-body",
       h5(class = "card-title",
