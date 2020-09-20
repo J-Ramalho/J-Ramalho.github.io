@@ -5,12 +5,20 @@ pagetitle: "EF | Home"
 ```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(htmltools)
+
+# original headers color: #337AB7
 ```
 
-
-
-
-***
-
+```{r}
+br()
+div(
+  br(),
+  div(
+    p(class = "centered-big", "Emerging factory"),
+    p(class = "centered-small", "Transforming the Manufacturing Industry with AI")
+  ),
+  img(src = "img/industrialAIstreet.jpg")
+)
+```
 
 

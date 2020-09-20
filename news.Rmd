@@ -44,11 +44,10 @@ scifi_cards
 
 ***
 
-#### Book: Industrial Statistics, Case Studies in Product Development and Manufacturing with R
+#### 20.09.2020 New book in preparation: Industrial Statistics, Case Studies in Product Development and Manufacturing with R
 
 ```{r}
 div(
-  br(),
   img(src = "img/industrialstats_cover.png",
         alt = "",
         style = "border-radius: 100%",
@@ -62,9 +61,9 @@ div(
     )
 ```
 
-This book capitalises on more than two decades of experience in the industry and to collect insights from visits to more than fifty different manufacturing plants. Its examples come from real cases from many different types of products. Some are from consumer goods like watches, cigarettes and plastic bags. Some are from utilities like electricity and gas. Some are from engineering like automotive and machine tools.
+This book aims to capitalise on more than two decades of experience in the industry and to collect insights from visits to more than fifty different manufacturing plants. Its examples come from real cases from many different types of products. Some are from consumer goods like watches, cigarettes and plastic bags. Some are from utilities like electricity and gas. Some are from engineering like automotive and machine tools.
 
-[e-book](https://j-ramalho.github.io/industRialstatistics/)
+[e-book preview](https://j-ramalho.github.io/industRialstatistics/)
 
 
 

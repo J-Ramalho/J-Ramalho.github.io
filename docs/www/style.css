@@ -1,5 +1,5 @@
 h1, h2, h3, h4 {
-    color: #337AB7;
+    color: #275282;
 }
 
 body {
@@ -7,13 +7,22 @@ body {
     color: #333333;
 }
 a, a:hover {
-    color: #337AB7;
+    color: #275282;
 }
 pre {
     font-size: 10px;
 }
-.articlehead {
+.centered-big {
+  text-align: center;
   font-weight: bold;
+  font-size: 40px;
+  
+}
+.centered-small {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
