@@ -1,5 +1,5 @@
 ---
-pagetitle: "EF | Home"
+pagetitle: "Joao Ramalho"
 ---
 
 ```{r setup, echo = FALSE, message=FALSE, warning = FALSE}
@@ -10,15 +10,18 @@ library(htmltools)
 ```
 
 ```{r}
-br()
 div(
   br(),
-  div(
-    p(class = "centered-big", "Emerging factory"),
-    p(class = "centered-small", "Transforming the Manufacturing Industry with AI")
-  ),
-  img(src = "img/industrialAIstreet.jpg")
-)
+  img(src = "img/JR.png",
+        alt = "Jo\u00E3o Ramalho",
+        style = "border-radius: 100%"
+        ),
+  div(h1("Jo\u00E3o Ramalho"),
+        h3("Industrial Data Scientist")
+      )
+    )
 ```
+
+João has more than 20 years of experience in the manufacturing industry. Having held numerous positions in R&D, Operations and IT at Philip Morris, Rolex and Nestlé, he has an exceptionally large view of how consumer goods are conceived, industrialized and manufactured. He holds a Master in Mechanical Engineering from the [IST](http://ist.pt/), a Project Management certification from [PMI](https://www.pmi.org/) and a Data Science certification from [DataCamp](https://www.datacamp.com/). He's currently specializing in Data Visualization at the Swiss technical university [EPFL](https://www.extensionschool.ch/).
 
 

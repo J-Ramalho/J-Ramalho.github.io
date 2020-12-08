@@ -1,0 +1,289 @@
+---
+pagetitle: "JR - Azores"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+bibliography: [book.bib, packages.bib, article.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+	fig.align = "center",
+	message = FALSE,
+	warning = FALSE,
+	include = FALSE,
+	out.width = "70%"
+)
+```
+
+<img src='img/pico.jpg' class='picture'>
+
+```{r packages loading}
+library(kableExtra)
+library(glue)
+library(rcartocolor)
+library(sf)
+library(raster)
+library(scales)
+library(tidyverse)
+library(lubridate)
+library(gridExtra)
+source("theme_az.R")
+```
+
+# A story about volcanoes ...
+<br>
+<p class = "handwriting">
+This is a story about the volcanoes of the Azores, the luxuriant volcanic islands in the middle of the Atlantic that belong to Portugal. We don't hear so much about the Azores so, although I lived half of my life in Portugal, it was only when I was in my mid forties that I first visited them. Fortunately this place remains relatively protected from excessive tourism and environmental damage. These islands also remain an historical exception, by not having been a place for slavery trade or colonialism. They had no indigenous people and were wild and savage when the Portuguese discovered them in the XV century. Throughout the years they've remained rather empty and somehow poor but well taken care by long and hard labor. For me they were the place to discover volcanoes as there are many of them and many stories about eruptions, the most notable ones dating back to 1957 and the latest ones to 2001.
+<p/>
+
+## Report features
+
+Course: EPFL ADSCV   
+Unit: C02S15U05   
+author: J.Ramalho   
+date: `r Sys.Date()`      
+
+I've started testing styling of Rmd reports since unit 1 of this Communication and Visualization course. In this report I'm thus reusing most of the things I had already learned and also introducing some new:
+
+**YAML configuration:**
+
+* rendering in html, my favorite format
+* using code in the YAML header (notably the Sys.Date function)
+* dynamic table of contents, unfolding deeper levels on click
+* toggling show and hiding code
+* applying a pre-packaged bootstrap theme and a highlight theme available from Rmarkdown
+* using an external css file for fine tuning page aesthetics, including headers, toc and links
+* enabling referencing in the YAML in order to insert in the text appropriate references to publications, books and packages, that send to the bibliography session at the end of the report 
+
+**r setup and knitr options:**
+
+* message and warning false as knitr function arguments to avoid undesired outputs
+* figure size and centering as defaults
+
+**Rmarkdown features:**
+
+* exploring some of the different ways of adding images: <img>; knitr::include_graphics(); htmltools::img(); magick::image_read(); ![]("")
+* adding floating code with calculations and variables with \`r `<code>`\`
+* naming the chunks for easier and quicker debugging
+* beautifying tables with kable, kable extra, DT and gt packages
+* introduction of a new taylor made theme as a externally sourced function with specific attributes for this report
+* focusing on the output and on the story telling by showing for example the table heads with head() to make readers aware of the data structure
+
+This report uses several data sources other than the internet, namely the book Historia Natural dos Açores [@Trota2013] and has been prepared using the excellent R Markdown package developed by the R Studio team [@R-rmarkdown].
+
+Finally in this specific report I'm trying with a dark background for the first time and I'm also removing the title, author and date from the usual position at the page top as this is not intented to be a technical report but rather a brochure type of reading. As usual any feedback on format or content is more than welcome.
+
+## Azores map
+
+Between latitudes N36°55' and N39°43' and longitudes W24°46' and W31°16' lay the Azores archipel. The islands correspond to the emerged parts of oceanic volcanic mountains chains whose average depth is around 2km and stand right where three litospheric plates join. The plates are moving to a point that the western islands distance to the others increase by approximately 23 mm/year. Below we're showing a map of the archipel created with shapefiles issued by the Portuguese government [Distritos de Portugal](https://dados.gov.pt/en/datasets/distritos-de-portugal/#_) and [mapcruizin](https://mapcruzin.com/free-azores-arcgis-maps-shapefiles.htm).
+
+```{r include=FALSE}
+# Shapefile with borders for the entire country from the government:
+pt_borders <- st_read("data/portugal/distritos.shp")
+# Filtering for the Azores districts:
+az_borders <- pt_borders %>%
+  filter(NAME_1 == "Açores")
+# Getting places names from mapcruzin:
+az_places <- st_read("data/azores/places.shp")
+# Filtering for the main places
+az_places_main <- az_places %>%
+  filter(type == "city" | type == "town")
+
+# Manually creating a vector with the Island names for each main place:
+island <- c("Terceira",
+            "Corvo",
+            "Flores",
+            "Pico",
+            "São Miguel", 
+            "São Miguel",
+            "São Miguel",
+            "Santa Maria",
+            "Flores",
+            "São Jorge",
+            "São Miguel",
+            "São Miguel",
+            "Pico",
+            "Faial",
+            "Graciosa",
+            "São Miguel",
+            "São Jorge",
+            "Terceira",
+            "Pico",
+            "São Miguel"
+)
+
+# Binding the new islands vector to the main places shapefile:
+az_islands <- az_places_main %>%
+  bind_cols(island) %>%
+  rename("island" = "...6") %>%
+  group_by(island) %>%
+  slice(1)
+```
+
+```{r}
+ggplot() +
+  # using the government borders shapefil for the islands
+  geom_sf(data = az_borders, fill = "darkgreen") +
+  # using the island names, from the main places shapefile for the labels:
+  geom_sf_text(data = az_islands, aes(label = island), size = 3, color = "black",
+               check_overlap = TRUE, nudge_x = -0.5, nudge_y = 0.25
+  ) +
+  coord_sf(xlim = c(-32.5, -24), ylim = c(36.5, 40)) +
+  theme_az() +
+  # theme_void() +
+  theme(
+    plot.margin = margin(t=1, r=1, b=1, l=0, "cm"),
+  #   plot.background = element_rect(fill = "#ccffff")
+  ) +
+  labs(title = "Azores Islands",
+       subtitle = "A Portuguese Archipel in the middle of the Atlantic Ocean",
+       x = "longitude",
+       y = "latitude",
+       caption = "Source: dados.gov.pt / mapcruzin.com")
+
+``` 
+
+
+## Seismic activity
+
+Data on worldwide volcanoes activity can be retrieved from the R Tidytuesday edition on volcanoes: [Tidytuesday](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-12/readme.md).
+Below we're presenting a small table with an extract of the strongest eruptions of the last 5 centuries, obtained from that this data source:
+
+```{r}
+eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv')
+eruptions_az <- eruptions %>%
+  filter(longitude >= -31.36 & longitude <= -24.4) %>%
+  filter(latitude <= 39.75 & latitude >= 36.5)
+eruptions_az_recent <- eruptions_az %>%
+  filter(start_year >= 1432)
+```
+
+```{r}
+eruptions_az_top <- eruptions_az %>%
+  filter(start_year >= 1432) %>%
+  group_by(volcano_name) %>%
+  arrange(desc(vei)) %>%
+  slice(1)
+
+eruptions_az_top %>% 
+  select(volcano_name, vei) %>%
+  arrange(desc(vei)) %>%
+  kableExtra::kable() %>% 
+  kableExtra::kable_styling(bootstrap_options = "bordered")
+```
+<br/>
+Running some simple calculations on the original we've made a first assessment of the seismic activity of the region: the whole area exhibits important sysmic activity with `r nrow(eruptions_az_recent)` eruptions registered since the discovery of the islands in 1432, an average of `r round((nrow(eruptions_az_recent) * 100 / (2020-1432)), 1)` per century. For comparison Nature researchers detected 238 eruptions worldwide since 2'500 years which comes to `r round((238 * 100 / 2500),1)` per century [@Nature523].
+
+## Volcanoes location
+
+Here we're going further and we're overlapping the in our map the location of these strongest volcanoes of the last five centuries:
+
+```{r}
+ggplot() +
+  # using the government borders shapefil for the islands
+  geom_sf(data = az_borders, fill = "#66ffcc") +
+  # using the island names, from the main places shapefile for the labels:
+  # geom_sf_text(data = az_islands, aes(label = island), size = 3,
+  #              check_overlap = TRUE,
+  #              nudge_x = -0.5, nudge_y = 0.2
+  # ) +
+  geom_point(data = eruptions_az_top, 
+          aes(x = longitude, y = latitude, color = as_factor(vei))) +
+  coord_sf(xlim = c(-31.2, -24.9), ylim = c(36.9, 39.7)) +
+  scale_color_carto_d(palette = "RedOr", name = "VEI") +
+  theme_az() +
+  labs(title = "Azores Islands",
+       subtitle = "Location of the strongest volcanoes",
+       x = "longitude",
+       y = "latitude",
+       caption = "VEI: Volcanic Explosivity Index\n Source: R tidytuesday")
+```
+<br><br>
+We can see that 4 volcanoes are located on the São Miguel island. Having been there in 2018 I can confirm the current activity: there are many, many hot-springs to be seen. These are big holes of a few meters diameter on the ground with boiling water inside and a very strong smell of sulfur. A highlight of the region is to eat a special plate made of meat, potatoes and cabbage cooked in a pan inserted in one of these holes for a few hours!
+
+## Activity duration
+
+A question one often asks is: how long is a volcanoe active. Naturally like any natural phenomenon there's a wide range of variation. To try to answer this question at least for the scope of our report, we've filtered down the events for which there is record of start and end date and present them in the chart below.
+
+```{r}
+eruption_az_time <- eruptions_az %>%
+  filter(!is.na(end_day)) %>%
+  mutate(start_date = glue('{start_year}-{start_month}-{start_day}'),
+         end_date = glue('{end_year}-{end_month}-{end_day}')) %>%
+  mutate(end_date = ymd(end_date)) %>%
+  filter(!is.na(end_date)) %>%
+  select(volcano_name, eruption_number, start_year, vei, start_date, end_date) %>%
+  mutate(eruption_interval = interval(start = start_date, end = end_date)) %>%
+  mutate(eruption_duration = eruption_interval / months(x = 1)) %>%
+  mutate(eruption_duration = round(eruption_duration, 0))
+
+eruption_az_time %>%
+  ggplot(aes(x = start_year, y = eruption_duration, fill = as.factor(vei))) +
+  geom_col(width = 8) +
+  scale_x_continuous(breaks = seq(1500, 2020, 25)) +
+  scale_fill_carto_d(palette = "RedOr", name = "VEI") +
+  theme_az() +
+  theme(axis.text.x = element_text(angle = 45)) +
+  labs(title = "Azores volcanoes",
+       subtitle = "Activity duration by eruption",
+       x = "year",
+       y = "Duration [months]",
+       caption = "Data Source: R tidytuesday")
+```
+<br>
+We won't recommend to draw direct conclusions but at least to observe that low intensity eruptions considered part of the same event have been observed recently lasting more than a year while very strong intensity events lasting a few months. To be noted the famous event of 1957 in Faial lasting more than a year of which we can still the ashes covering part of the island and that triggered so much emigration to the US in the following years due to the agricultural and economic consequences.
+
+
+## Serious impacts
+
+Through history volcanoe eruption has not only been a tourist attraction though. Looking at the chart below one can image that first inhabitants have been caught by surprise with devastating effects. The highest tall ever has been the eruption of October 22, 1522 in the São Miguel island, the second to be discovered, with around 5'000 dead. Since then we see the numbers going down but as recently as 1998 there have still been 8 dead and more than a 100 injured in the Faial eruption, the last one happening inland.
+
+```{r fig.margin=FALSE}
+casualities <- tribble(
+  ~year, ~island, ~deaths, ~injuries,
+  1522, "São Miguel", 5000, NA,
+  1614, "Terceira", 200, NA,
+  1757, "São Jorge", 1000, NA,
+  1852, "São Jorge", 9, NA,
+  1926, "Faial", 20, 200,
+  1935, "São Miguel", 1, NA,
+  1980, "Terceira", 59, 400,
+  1988, "Faial", 8, 100,
+)
+casualities_long <- casualities %>%
+  pivot_longer(names_to = "type", cols = c("deaths", "injuries")) %>%
+  mutate(type = fct_rev(type))
+palette <- c("#cc66ff", "#0033cc")
+
+casualities_long %>%
+  ggplot() +
+  geom_col(aes(x = year, y = value, fill = type), width = 8) +
+  scale_fill_manual(values = palette) +
+  scale_y_continuous(labels = label_number(big.mark = "'")) +
+  theme_az() +
+  labs(title = "Azores volcanoes",
+       subtitle = "Deaths and Injuries throught the history",
+       y = "Victims",
+       caption = "Data Source: Historia Natural dos Açores (Trota,2013)")
+```
+
+## Climbing mountains
+
+Scaring, intriguing and beautiful, these are the volcanoes.I end this report as I started: with a photo of the Pico volcano. This time with me climbing the mountain, much like climbing the steep but rewarding mountain of the Applied Data Science course of the EPFL extended school!
+
+```{r joao climbing}
+# include_graphics("img/philippines_donors.jpg")
+htmltools::img(src = "img/joao_climbing.JPG", class = "picture")
+```
+
+## References
+
+
+
+
+

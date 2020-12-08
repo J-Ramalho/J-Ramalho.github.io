@@ -1,5 +1,5 @@
 ---
-pagetitle: "EF | Contact"
+pagetitle: "JR - Contact"
 ---
 
 ```{r setup, echo = FALSE, message=FALSE, warning = FALSE}

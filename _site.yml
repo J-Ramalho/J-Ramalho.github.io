@@ -1,15 +1,11 @@
-name: "Emerging Factory"
+name: "Joao Ramalho"
 navbar:
-  title: "EMERGING FACTORY"
+  title: "Joao Ramalho"
   left:
-    - text: "Home"
-      href: index.html
-    - text: "News"
-      href: news.html
-    - text: "Applications"
-      href: applications.html
     - text: "Contact"
       href: contact.html
+    - text: "Azores"
+      href: azores.html
 output:
   html_document:
     css: www/style.css
