@@ -2,13 +2,13 @@ name: "Joao Ramalho"
 navbar:
   title: "Joao Ramalho"
   left:
-    - text: "Contact"
-      href: contact.html
-    - text: "Azores"
-      href: azores.html
+    - text: "POSTS"
+      href: posts.html
 output:
   html_document:
     css: www/style.css
+    highlight: espresso
+    theme: flatly
     include:
       after_body: footer.html
 output_dir: "docs"
