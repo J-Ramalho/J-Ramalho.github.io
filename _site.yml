@@ -3,7 +3,7 @@ navbar:
   title: "Joao Ramalho"
   left:
     - text: "About"
-      href: index.html
+      href: indexR.html
     - text: "Posts"
       href: posts.html
 output:
