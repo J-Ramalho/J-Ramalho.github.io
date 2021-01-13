@@ -2,12 +2,14 @@ name: "Joao Ramalho"
 navbar:
   title: "Joao Ramalho"
   left:
-    - text: "POSTS"
+    - text: "About"
+      href: index.html
+    - text: "Posts"
       href: posts.html
 output:
   html_document:
     css: www/style.css
-    highlight: espresso
+    highlight: monochrome
     theme: flatly
     include:
       after_body: footer.html

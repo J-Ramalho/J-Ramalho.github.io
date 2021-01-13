@@ -1,0 +1,110 @@
+---
+output: 
+  html_document
+bibliography: [book.bib, packages.bib, article.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+<br><br>
+
+# DOE
+
+[@Montgomery2012], Chapter 2
+
+*The Portlant cement example*
+
+Loading data
+```{r}
+# To be used in examples with each variable in a different column
+cement <- read.csv("data/2 cement.csv")
+# To be used in examples with all variables in one column with additional factor column
+cement_factor <- read.csv("data/2 cement_factor.csv")
+names(cement_factor) <- c("treatment", "y")
+```
+
+Normality check  
+t test assumptions
+* independent populations
+* normally distributed
+* equal variance
+* random sampling
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r}
+ggplot(cement_factor, aes(x = y, fill = treatment)) +
+  geom_histogram()
+
+ggplot(cement_factor, aes(x = y, fill = treatment)) +
+  geom_density(alpha = 0.3)
+```
+
+My take away is that the populations are too small to plot histograms (Montgomery recommends >75 observations!)
+
+## Homogeneity of variances test (Levene Test)
+
+You want test samples to see for homogeneity of variance (homoscedasticity)
+
+```{r}
+library(car)
+```
+
+```{r}
+leveneTest(y ~ treatment, data = cement_factor)
+```
+
+Pr > 0.05 thus there is homogeity of the variances (they do not differ significantly).
+
+```{r}
+library(stats)
+```
+
+
+```{r}
+# perform t-test
+t.test(x = cement$Modified, 
+       y = cement$Unmodified,
+       var.equal = TRUE)
+```
+P < 0.05 thus the means differ significantly 
+The null hypothesis is rejected (and would be rejected at any level of significance of alpha > 0.0422).
+
+Furthemore the mean difference is estimated with 95% confidence, to be between -0.55 and -0.01 (to be noted that zero is obviously not included in this interval).
+
+*Sample size calculation*
+
+```{r}
+library(lsr)
+library(pwr)
+```
+
+
+```{r}
+# Calculate the required sample size for a certain t-test power
+cohen_d <- 0.25 / 0.25 # Cohen's effect size = difference of means / sd
+# A Cohen's d of 2 means that the averages changed by 2 standard deviations, which is very large.
+pwr.t.test(d = cohen_d, power = 0.95)
+
+# By comparison, calculate Cohen's d for the dataset
+cohensD(x = cement$Modified, y = cement$Unmodified)
+```
+ In this example if we wanted to detect a significant difference of at least 0.25 in the means with a probability of at least 95% (Power of 0.95)  we would need to use 8 (7.6) samples of each.
+ 
+see also [@Broc2016] for further details on the statistical tests presented here.
+
+*t-test paired*
+ 
+```{r}
+hardness <- read.csv("data/2 hardness.csv")
+t.test(x = hardness$Tip1, y = hardness$Tip2, paired = TRUE)
+```
+p > 0.05 thus the means cannot be considered different (we cannot reject the null hypothesis)
+The mean difference is with 95% confidence between -0.96 and 0.76.
+
+Note that because it is paired although there are 20 measurements there are only 9 degrees of freedom (10 times the differences between the measurements, minus 1).
+
+# References

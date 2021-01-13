@@ -1,0 +1,83 @@
+---
+output: 
+  html_document
+bibliography: [book.bib, packages.bib, article.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+<br><br>
+
+# SPC
+
+Adapted from [@Bass2007]
+
+Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. 
+
+```{r}
+library(readr)
+library(dplyr)
+```
+
+Bamako Lightening is a company that manufactures lamps. The weight of each lamp is critical to the quality of the product. The Production Operator monitors the production process using xbar and R-charts. Samples are taken of six lamps every hour and their means and ranges plotted on control charts. Data is available representing samples taken a period of 25 hours of production.
+
+Start by loading a csv file from our github repository into our R session:
+```{r}
+bamako <- readr::read_csv("data/Bamako.csv")
+```
+
+
+```{r, eval = FALSE}
+bamako <- readr::read_csv(
+  file = "https://raw.githubusercontent.com/J-Ramalho/J-Ramalho.github.io/master/data/Bamako.csv")
+```
+The message shows that the loading has worked correctly as all columns have been parsed with type double.
+Looking at the first five lines to confirm and assess the quality of our data for further processing. 
+```{r}
+head(bamako)
+```
+
+In this table each line corresponds to a sampling hour and each column corresponds to a sample number. 
+
+*xbar and  R charts*
+
+The package {qcc} has been selected to create the control charts.
+```{r}
+library(qcc)
+```
+The chart ploting function qcc() already considers that each line corresponds to a sampling event and requires as argument a table containing only the sampling values. For that the Hour column has to be removed.
+
+```{r}
+bamako_clean <- bamako %>% dplyr::select(-Hour)
+```
+
+Before entering regular production it is recommended to run a "calibration run". The calibration run is used to calculate the control limits. Using the first 10 samples a default Shewart xbar chart can be obtained as follows:
+```{r}
+qcc(bamako_clean[1:10, ], 
+    type = "xbar", 
+    title = "Lamp weight \n xbar chart", 
+    xlab = "Sample group")
+
+qcc(bamako_clean[1:10, ], 
+    type = "R", 
+    title = "Lamp weight \n R chart",
+    xlab = "Sample group")
+```
+
+Afterwards, the production samples can  be assessed against those limits and the control chart rules can be verified. In this example the shewhart rules are used.
+```{r}
+qcc(data = bamako_clean[1:10, ],
+    newdata = bamako_clean[11:25,],
+    type = "xbar", 
+    title = "Lamp weight \n xbar chart", 
+    xlab = "Sample group")
+
+qcc(data = bamako_clean[1:10, ],
+    newdata = bamako_clean[11:25,], 
+    type = "R", 
+    title = "Lamp weight \n R chart",
+    xlab = "Sample group")
+```
+
+# References
+
