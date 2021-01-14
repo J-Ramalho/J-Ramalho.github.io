@@ -1,17 +1,40 @@
 ---
+title: "Data Science"
 output: 
-  html_document
+  html_document:
+    toc: true
+    toc_float: true
+    css: www/style.css
 bibliography: [book.bib, packages.bib, article.bib]
 biblio-style: apalike
 link-citations: yes
+nocite: |
+  @Montgomery2012
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(htmltools)
 ```
 
-<br><br>
+<a href="index.html">Home</a>
 
-[SPC - Statistic Process Contol](spc.html)
 
-[DOE - Design of Experiments](doe.html)
+# Design of Experiments
+
+```{r}
+head(cars)
+```
+
+
+# Measurement System
+
+# Process Control
+
+## Process Capability
+
+## SPC
+
+
+# References
+

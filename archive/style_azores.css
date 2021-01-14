@@ -1,0 +1,61 @@
+#TOC ul>li {
+  color: #f5f5f0;
+  background-color: #003300;
+}
+h1, h2, h3, h4 {
+  color: #f5f5f0;
+}
+body {
+  font-family: Century;
+  color: #e1e1d0;
+  background-color: #003300;
+}
+.handwriting {
+  font-family: "Lucida Handwriting";
+  color: #e1e1d0;
+  font-size: 20px;
+}
+a, a:hover {
+    color: #00ffcc;
+}
+pre {
+    font-size: 10px;
+}
+.picture {
+  border-style: solid;
+  border-width: 5px;
+  align-self: center;
+}
+.centered-big {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  
+}
+.centered-small {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(120px, 1fr));
+  grid-gap: 25px 30px;
+  max-width: 75%;
+}
+.card-body {
+  padding: 5px 15px 10px;
+}
+footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 75px;
+  margin-top: 50px;
+}
