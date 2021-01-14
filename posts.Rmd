@@ -1,15 +1,16 @@
 ---
-title: "Data Science"
 output: 
   html_document:
     toc: true
-    toc_float: true
-    css: www/style.css
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    css: style.css
 bibliography: [book.bib, packages.bib, article.bib]
 biblio-style: apalike
 link-citations: yes
 nocite: |
-  @Montgomery2012
+  @Montgomery2012, @Broc2016
 ---
 
 ```{r setup, include=FALSE}
@@ -19,22 +20,23 @@ library(htmltools)
 
 <a href="index.html">Home</a>
 
+# Data Science
 
-# Design of Experiments
+## DOE
 
 ```{r}
 head(cars)
 ```
 
 
-# Measurement System
+## Measurement System
 
-# Process Control
+## Process Control
 
-## Process Capability
+### Process Capability
 
-## SPC
+### SPC
 
 
-# References
+## References
 

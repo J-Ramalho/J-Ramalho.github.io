@@ -30,13 +30,13 @@ pre {
   text-align: center;
   font-weight: bold;
   font-size: 40px;
-  
+
 }
 .centered-small {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  
+
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -58,4 +58,9 @@ footer {
   align-items: center;
   padding-top: 75px;
   margin-top: 50px;
+}
+
+#TOC ul>li {
+  color: blue;
+  background-color: black;
 }
