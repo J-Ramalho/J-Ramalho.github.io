@@ -1,9 +1,15 @@
 body {
   /* font-family: "Liberation Mono", Arial; */
   font-family: "Manjari", Arial;
-  font-size: 20px;
+  font-size: 16px;
   max-width: 1200px;
   background-color: #ffffff;
+}
+h3 {
+  color: #38598CFF;
+}
+a {
+  color: #2D708EFF;
 }
 .sidenav {
   width: 250px;
@@ -21,11 +27,11 @@ body {
   padding: 1px 8px 1px 8px;
   text-decoration: none;
   font-size: 18px;
-  color: #2196F3;
+  color: #2D708EFF;
   display: block;
 }
 .sidenav a:hover {
-  color: #064579;
+  color: #2D708EFF;
 }
 #side-img {
   display: block;
