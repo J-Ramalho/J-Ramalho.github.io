@@ -3,7 +3,10 @@ body {
   font-family: "Manjari", Arial;
   font-size: 16px;
   max-width: 1200px;
-  background-color: #ffffff;
+  background-color: #ffffff; /*#edf1f7*/
+}
+h2 {
+  color: #38598CFF;
 }
 h3 {
   color: #38598CFF;
@@ -17,7 +20,7 @@ a {
   z-index: 1;
   top: 20px;
   left: 10px;
-  background: #eee;
+  background: #ffffff; /*#edf1f7 #eee*/
   overflow-x: hidden;
   padding: 8px 0;
   margin-left: 50px;
