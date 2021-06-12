@@ -1,9 +1,9 @@
 body {
   /* font-family: "Liberation Mono", Arial; */
   font-family: "Manjari", Arial;
-  font-size: 16px;
+  font-size: 18px;
   max-width: 1200px;
-  background-color: #ffffff; /*#edf1f7*/
+  background-color: #edf1f7; /*#ffffff*/
 }
 h2 {
   color: #38598CFF;
@@ -20,7 +20,7 @@ a {
   z-index: 1;
   top: 20px;
   left: 10px;
-  background: #ffffff; /*#edf1f7 #eee*/
+  background: #edf1f7; /*##ffffff #eee*/
   overflow-x: hidden;
   padding: 8px 0;
   margin-left: 50px;
