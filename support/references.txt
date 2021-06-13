@@ -18,3 +18,13 @@ https://www.w3schools.com/jsref/met_table_createthead.asp
 
 # Add css class to the object
 https://www.tutorialspoint.com/how-to-add-a-class-to-dom-element-in-javascript
+
+# Added book cover image to the table
+https://www.w3schools.com/jsref/dom_obj_image.asp
+
+# Inspiration to remove error messages when showing images
+https://stackoverflow.com/questions/63655338/im-getting-objecthtmlimageelement-instead-of-the-image-in-my-list-item
+https://stackoverflow.com/questions/24822631/object-htmlimageelement-showing-instead-of-image
+
+# Installed json editor add-in to deal with the line breaks while editing the long text field
+https://marketplace.visualstudio.com/items?itemName=nickdemayo.vscode-json-editor
