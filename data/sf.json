@@ -1,0 +1,25 @@
+[
+  {
+    "id": "1",
+    "firstName": "Arthur",
+    "lastName": "C.Clarke",
+    "title": "Rendez-vous with Rama",
+    "review": "Rendezvous with Rama is a science fiction novel by British writer Arthur C. Clarke first published in 1973. Set in the 2130s, the story involves a 50-by-20-kilometre (31 by 12 mi) cylindrical alien starship that enters the Solar System. The story is told from the point of view of a group of human explorers who intercept the ship in an attempt to unlock its mysteries. The novel won both the Hugo[4] and Nebula[5] awards upon its release, and is regarded as one of the cornerstones in Clarke's bibliography. The concept was later extended with several sequels, written by Clarke and Gentry Lee."
+  },
+  {
+    "id": "2",
+    "firstName": "Ursula",
+    "lastName": "LeGuin",
+    "title": "The Dispossessed",
+    "review": [
+      "The Dispossessed: An Ambiguous Utopia is a 1974 utopian science fiction novel by American writer Ursula K. Le Guin, set in the fictional universe of the seven novels of the Hainish Cycle, e.g. The Left Hand of Darkness. The book won the Nebula Award for Best Novel in 1974,[1] as well as winning both the Hugo and Locus Awards in 1975,[2] and received a nomination for the John W. Campbell Memorial Award in 1975.[2] It achieved a degree of literary recognition unusual for science fiction due to its exploration of themes such as anarchism (on a satellite planet called Anarres) and revolutionary societies, capitalism, and individualism and collectivism. "
+    ]
+  },
+  {
+    "id": "3",
+    "firstName": "Isaac",
+    "lastName": "Asimov",
+    "title": "Foundation",
+    "review": "Foundation is a science fiction novel by American writer Isaac Asimov. It is the first  published in his  Foundation Trilogy (later expanded into the Foundation Series). Foundation is a cycle of five interrelated short stories, first published as a single book by Gnome Pressin 1951. Collectively they tell the early story of the Foundation, aninstitute founded by psychohistorian Hari Seldon to preserve the best ofgalactic civilization after the collapse of the Galactic Empire. "
+  }
+]
