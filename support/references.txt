@@ -28,3 +28,6 @@ https://stackoverflow.com/questions/24822631/object-htmlimageelement-showing-ins
 
 # Installed json editor add-in to deal with the line breaks while editing the long text field
 https://marketplace.visualstudio.com/items?itemName=nickdemayo.vscode-json-editor
+
+# Working on css inheritance in order to set the table borders at higher level
+https://stackoverflow.com/questions/62267247/which-css-properties-for-an-html-table-inherit-to-td-th-tr

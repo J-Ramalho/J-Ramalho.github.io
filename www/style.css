@@ -36,12 +36,19 @@ a {
 .sidenav a:hover {
   color: #2D708EFF;
 }
-.booklist table {
-  border-color: #38598CFF;
-  font-size: 42;
-  padding: 25px;
+.booklistHCell {
+  color: #38598CFF;
+  background-color: lightgray;
+  border: 1px solid lightgray;
+}
+.booklist table, th, td {
+  font-size: 14px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   text-align: left;
-  /*border-bottom: 1px solid rgb(24, 23, 23);*/
+  vertical-align: top;
+  background-color: #edf1f7 ;
+  color: black;
 }
 #side-img {
   display: block;
