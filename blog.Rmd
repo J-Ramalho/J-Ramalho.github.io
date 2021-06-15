@@ -1,6 +1,8 @@
 ---
+title: ""
 output: 
   html_document:
+    theme: default
     toc: true
     toc_float: TRUE
     css: www/style.css
@@ -12,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <div class="sidenav">
 <div>
-<img id="side-img" src="img/JR-AI2.jpg" alt="" width="120px">
+<img id="side-img" src="img/JR-AI2.jpg" alt="" width="135px">
 <h3 style="padding: 1px 8px 1px 8px">João Ramalho</h3>
 </div>
 <a href="index.html">About</a>
@@ -21,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <a href="book.html">Book</a>
 <br>
 <hr style="color:lightgray;">
-<div style="font-family: Arial; text-align:center;">
+<div >
 <a href="https://www.linkedin.com/in/joaoramalho/" target="_blank"><img src="img/linkedin.png" width="25px"/></a>
 <a href="https://github.com/J-Ramalho" target="_blank"><img src="img/github.png" width="25px"/></a>
 </div>
@@ -34,6 +36,8 @@ knitr::opts_chunk$set(echo = TRUE)
 }
 .main-container {
     margin-left: -200px;
+    width: 100%;
+    max-width: unset;
 }
 ```
 

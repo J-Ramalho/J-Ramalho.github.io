@@ -34,3 +34,12 @@ https://stackoverflow.com/questions/62267247/which-css-properties-for-an-html-ta
 
 # Putting the blog Rmarkdown toc on the right
 https://stackoverflow.com/questions/60492122/in-rmarkdown-can-a-floating-toc-be-placed-on-the-right-side-of-page
+
+# Finetune blog page main container width
+https://stackoverflow.com/questions/38367392/override-rmarkdown-theme-in-order-to-change-html-page-width
+
+# To finetune default Rmarkdown css identify properties in default file and add custom property in project css
+# The Rmd default file is under:
+/home/joao/R/x86_64-pc-linux-gnu-library/4.1/rmarkdown/rmd/ioslides/ioslides-13.5.1/theme/css
+# The css default values are under:
+https://www.w3schools.com/cssref/css_default_values.asp

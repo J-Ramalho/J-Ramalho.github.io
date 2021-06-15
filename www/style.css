@@ -5,6 +5,7 @@ body {
   font-size: 18px;
   max-width: 1200px;
   background-color: #edf1f7; /*#ffffff*/
+  line-height: 1;
 }
 .about-body {
   /* font-family: "Liberation Mono", Arial; */
@@ -16,9 +17,13 @@ body {
 }
 h2 {
   color: #38598CFF;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 h3 {
   color: #38598CFF;
+  font-size: 1.17em;
+  font-weight: bold
 }
 a {
   color: #2D708EFF;
@@ -41,6 +46,7 @@ a {
   font-size: 18px;
   color: #2D708EFF;
   display: block;
+  margin: 8px;
 }
 .sidenav a:hover {
   color: #2D708EFF;
@@ -63,7 +69,7 @@ a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  /*width: 50%;*/
   padding: 1px 8px 1px 8px;
   border-radius: 100%;
 }
