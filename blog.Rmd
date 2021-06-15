@@ -1,0 +1,86 @@
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: TRUE
+    css: www/style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<div class="sidenav">
+<div>
+<img id="side-img" src="img/JR-AI2.jpg" alt="" width="120px">
+<h3 style="padding: 1px 8px 1px 8px">João Ramalho</h3>
+</div>
+<a href="index.html">About</a>
+<a href="cv.html">CV</a>
+<a href="blog.html">Blog</a>
+<a href="book.html">Book</a>
+<br>
+<hr style="color:lightgray;">
+<div style="font-family: Arial; text-align:center;">
+<a href="https://www.linkedin.com/in/joaoramalho/" target="_blank"><img src="img/linkedin.png" width="25px"/></a>
+<a href="https://github.com/J-Ramalho" target="_blank"><img src="img/github.png" width="25px"/></a>
+</div>
+</div>
+
+```{css toc-content, echo = FALSE}
+#TOC {
+  right: 250px;
+  margin: 20px 0px 10px 0px;
+}
+.main-container {
+    margin-left: -200px;
+}
+```
+
+
+<div class="rmd-main">
+  <div class="content body">
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## R Markdown2
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+## Including Plots2
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+  </div>
+</div>
