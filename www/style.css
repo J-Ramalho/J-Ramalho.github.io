@@ -1,19 +1,20 @@
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 body {
-  /* font-family: "Liberation Mono", Arial; */
-  font-family: "Manjari", Arial;
+  color:   #404040;
+  font-size: 16px;
+  max-width: 1200px;
+  background-color: #edf1f7; /*#ffffff*/
+  line-height: 1.2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.about-body {
   color:   #404040;
   font-size: 18px;
   max-width: 1200px;
   background-color: #edf1f7; /*#ffffff*/
-  line-height: 1;
-}
-.about-body {
-  /* font-family: "Liberation Mono", Arial; */
-  font-family: "Manjari", Arial;
-  color:   #404040;
-  font-size: 20px;
-  max-width: 1200px;
-  background-color: #edf1f7; /*#ffffff*/
+  line-height: 1.2;
 }
 h2 {
   color: #38598CFF;
