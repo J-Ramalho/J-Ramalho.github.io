@@ -1,4 +1,4 @@
-fetch('data/sf.json')
+fetch('data/readings.json')
 .then(function (response) {
     return response.json();
 })
@@ -11,6 +11,8 @@ fetch('data/sf.json')
 
 // Initiate a table:
 var sfTable = document.createElement("table");
+// Assign css class:
+sfTable.className = "booklistBorder"
 // Create table headers:
 var header = sfTable.createTHead();
 var row = header.insertRow(0);
@@ -24,11 +26,11 @@ var cell4 = row.insertCell(3);
 cell4.innerHTML = "<b>Review</b>";
 var cell5 = row.insertCell(4);
 cell5.innerHTML = "<b>Cover</b>";
-cell1.className = "booklistHCell"
-cell2.className = "booklistHCell"
-cell3.className = "booklistHCell"
-cell4.className = "booklistHCell"
-cell5.className = "booklistHCell"
+cell1.className = "booklistHeader"
+cell2.className = "booklistHeader"
+cell3.className = "booklistHeader"
+cell4.className = "booklistHeader"
+cell5.className = "booklistHeader"
 function createTable(data) {
     // Select DOM element that will be modified:
     var sfDiv = document.getElementById("sfDiv");
@@ -55,9 +57,13 @@ function createTable(data) {
         cell5.innerHTML = coverImage;
         cell5.innerHTML = ""; //to remove [objecthtmlimageelement], see references
         cell5.appendChild(coverImage);
+        // Style inner cells
+        cell1.className = "booklistCell"
+        cell2.className = "booklistCell"
+        cell3.className = "booklistCell"
+        cell4.className = "booklistCell"
+        cell5.className = "booklistCell"
         // Update the DOM element with new data:
-        sfDiv.appendChild(sfTable); 
-        // Assign css class to the row:
-        row.className = "booklist";       
+        sfDiv.appendChild(sfTable);     
     }
 }

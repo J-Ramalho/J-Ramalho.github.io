@@ -15,7 +15,7 @@ library(htmltools)
 
 <div class="sidenav">
 <div>
-<img id="side-img" src="img/JR-AI2.jpg" alt="" width="135px">
+<img id="side-img" src="img/JR-AI2.jpg" alt="" width="136px">
 <h3 style="padding: 1px 8px 1px 8px">João Ramalho</h3>
 </div>
 <a href="index.html">About</a>
@@ -23,10 +23,12 @@ library(htmltools)
 <a href="blog.html">Blog</a>
 <a href="book.html">Book</a>
 <br>
-<hr style="color:lightgray;">
+<hr style="color:lightgray;"></hr>
 <div>
-<a href="https://www.linkedin.com/in/joaoramalho/" target="_blank"><img src="img/linkedin.png" width="25px"/></a>
+<span style="font-weight: bold;">
+<p>test</p><a href="https://www.linkedin.com/in/joaoramalho/" target="_blank"><img src="img/linkedin.png" width="25px"/></a>
 <a href="https://github.com/J-Ramalho" target="_blank"><img src="img/github.png" width="25px"/></a>
+</span>
 </div>
 </div>
 
@@ -42,9 +44,10 @@ library(htmltools)
 }
 ```
 
-
 <div class="rmd-main">
   <div class="content body">
+
+
 
 ## Base R vs Tidyverse
 

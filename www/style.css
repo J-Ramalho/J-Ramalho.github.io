@@ -45,26 +45,36 @@ a {
   padding: 1px 8px 1px 8px;
   text-decoration: none;
   font-size: 18px;
-  color: #2D708EFF;
   display: block;
   margin: 8px;
 }
 .sidenav a:hover {
-  color: #2D708EFF;
+  color: black;
 }
-.booklistHCell {
+.active {
+  color: #38598CFF;
+}
+.not-active {
+  color: #999999;
+}
+.booklistHeader {
   color: #38598CFF;
   background-color: lightgray;
   border: 1px solid lightgray;
 }
-.booklist table, th, td {
+.booklistBorder {
+  /* color: red; */
+  /* border-collapse: collapse; */
+  border-color: transparent;
+}
+.booklistCell {
   font-size: 14px;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   vertical-align: top;
-  background-color: #edf1f7 ;
-  color: black;
+  background-color: #edf1f7;
+  border-color: transparent;
 }
 #side-img {
   display: block;
