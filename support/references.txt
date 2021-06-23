@@ -40,6 +40,9 @@ https://stackoverflow.com/questions/38367392/override-rmarkdown-theme-in-order-t
 
 # To finetune default Rmarkdown css identify properties in default file and add custom property in project css
 # The Rmd default file is under:
-/home/joao/R/x86_64-pc-linux-gnu-library/4.1/rmarkdown/rmd/ioslides/ioslides-13.5.1/theme/css
+/home/joao/R/x86_64-pc-linux-gnu-library/4.1/rmarkdown/rmd/ioslides/ioslides-13.5.1/theme/css/default.css
 # The css default values are under:
 https://www.w3schools.com/cssref/css_default_values.asp
+
+# Richard Feynman site to get materials for bookshelf
+# http://www.richardfeynman.com

@@ -29,6 +29,13 @@ h3 {
 a {
   color: #2D708EFF;
 }
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+/* ----------------- Side navigation -----------------------*/
 .sidenav {
   width: 250px;
   position: fixed;
@@ -45,26 +52,17 @@ a {
   padding: 1px 8px 1px 8px;
   text-decoration: none;
   font-size: 18px;
-  color: #2D708EFF;
   display: block;
   margin: 8px;
 }
 .sidenav a:hover {
-  color: #2D708EFF;
-}
-.booklistHCell {
-  color: #38598CFF;
-  background-color: lightgray;
-  border: 1px solid lightgray;
-}
-.booklist table, th, td {
-  font-size: 14px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  vertical-align: top;
-  background-color: #edf1f7 ;
   color: black;
+}
+.active {
+  color: #38598CFF;
+}
+.not-active {
+  color: #999999;
 }
 #side-img {
   display: block;
@@ -74,13 +72,31 @@ a {
   padding: 1px 8px 1px 8px;
   border-radius: 100%;
 }
-.text-center {
-  text-align: center;
+/* ------------------- Readings page --------------------*/
+.booklistHeader {
+  color: #38598CFF;
+  background-color: lightgray;
+  border: 1px solid lightgray;
+}
+.booklistBorder {
+  /* color: red; */
+  /* border-collapse: collapse; */
+  border-color: transparent;
+}
+.booklistCell {
+  font-size: 14px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #edf1f7;
+  border-color: transparent;
 }
 .main {
   margin-left: 330px;
   padding: 0px 10px;
 }
+/* ----------------- Rmarkdown ------------------*/
 .rmd-main {
   margin-left: 200px;
   padding: 0px 10px;
@@ -92,18 +108,4 @@ iframe {
     border: none;
     width: 100%;
 }
-.grid-container {
-  display: grid;
-  /*height: 400px;*/
-  align-content: center;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
-  /*background-color: #2196F3;*/
-  padding: 10px;
-}
-.grid-container > div {
-  /*background-color: rgba(255, 255, 255, 0.8);*/
-  text-align: left;
-  padding: 20px 0;
-  font-size: 22px;
-}
+

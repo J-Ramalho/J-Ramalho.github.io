@@ -25,12 +25,24 @@
         <h2>
           Professional Experience
         </h2>
-        <p>In my work I've had the opportunity to visit more than 30 different factories around the world and work on varied projects from coffee capsules to watches, from plastic parts to software.</p>
+        <p>In my work I've had the opportunity to visit more than 30 different factories around the world and work on many varied projects from coffee capsules to watches, from plastic parts to software.</p>
+        <img src="img/nestle.png" alt="" width="100px"
+        style="padding: 8px 8px 8px 8px">
+        <br>
         <b>
           2019 - present - Industrial Data Scientist, Nestlé, Switzerland
         </b>
         <p>
-          Providing advanced analytics on Product Development, Quality equipment validation and Manufacturing Process Improvement. Core member of the DATAnalytics network, contributing the development and implementation of data science tools and methods for global R&D.
+          Providing Data Science support on Product Development, Quality equipment validation and Manufacturing Process Improvement. Core member of the global DATAnalytics network, contributing the development and implementation of data science tools and methods for R&D.
+        <ul>
+          <li>
+            Contributed to the adoption of reproducible research by bringing teams from pure excel to code based methods.
+          </li>
+          <li>
+            Developed and deployed a new risk management platform using Natural Language Processing
+          </li>
+        </ul>
+
         </p>
         <b>
           2012 - 2018 - Packaging Group Leader, Nestlé, Switzerland
@@ -38,23 +50,50 @@
         <p>
           Lead a team of 4 project managers for Nescafé Dolce Gusto at the STC. Engineering, prototyping, testing and industrialisation of capsule components. Expertise in injected and thermoformed polypropylene and EVOH rigid parts and laminated and coated flexible films in PET and Aluminium.
         </p>
+        <ul>
+          <li>
+            secured full double sourcing by throughly analysing the complex 5 billion parts/year supply chain and industrializing existing capsule
+            components at new packaging suppliers
+          </li>
+          <li>
+            established and delivered a packaging cost reduction program achieving cumulated 25 mioEur savings over 3 years
+          </li>
+        </ul>
+        <img src="img/rolex.png" alt="" width="80px"
+              style="padding: 8px 8px 8px 8px">
+        <br>
         <b>
           2006 - 2012 - Senior Project Manager, Rolex, Switzerland
         </b>
         <p>
           Coordinating specialists in watch engineering, quality and production. Overall project management from brief through development to market launch. Expertise in machined micro-mechanical parts in steel and silicon. Strong knowledge on production processes of stamped, PVD and electroplated cases, bracelets and dials.
         </p>
+        <ul>
+          <li>
+            successfully launched 7 new watches over the years, including the innovative anti-magnetic Rolex Oyster Milgauss, all presented at the Basel World fairs</li>
+        </ul>
+        <img src="img/pmi.png" alt="" height="40px"
+              style="padding: 8px 8px 8px 8px">
+        <br>
         <b>
           2003 - 2006 - SAP Plant Maintenance Team Leader, Philip Morris, Switzerland
         </b>
         <p>
           Lead a team of 5 operations experts and 2 IBM SAP consultants. Advisor for the World Class Maintenance program. On site support in Holland, Germany, Argentina, Brazil, Russia and Lithuania.
         </p>
+        <ul>
+          <li>
+            designed, developed and implemented the SAP Plant Maintenance solution for the Swiss Neuchâtel plant (300+ users on the shop floor)
+          </li>
+          <li>
+            leveraged the capabilities of the IBM off-shore software development platform in India
+          </li>
+        </ul>
         <b>
           1998 - 2003 - Production Supervisor, Philip Morris, Portugal
         </b>
         <p>
-          Shift supervisor in 3x8h (factory operation with ~100 persons including production, maintenance and logistics). Daily troubleshooting on the shop floor in order to achieve the factory output of average 40 million parts, while ensuring quality and safety standards.
+          Shift supervisor in 3x8h of ~100 persons (production, maintenance and logistics). Daily troubleshooting on the shop floor in order to achieve the factory output of average 40 million parts, while ensuring quality and safety standards.
         </p>
         <hr>
         <h2>
@@ -80,14 +119,6 @@
           <li>2011 - PMP - Project Management Professional (Credential #1471588) - <a href="https://www.pmi.org/" target="_blank">PMI</a></li>
         </ul>
         <hr>
-        <h2>
-          Programming experience
-        </h2>
-        <ul>
-          <li>Data Science: R, SQLite</li>
-          <li>DevOps: bash, git, github</li>
-          <li>Web Development: HTML, CSS, Javascript</li>
-        </ul>
         <h2>
           Publications
         </h2>
