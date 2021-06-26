@@ -5,7 +5,7 @@
     "lastName": "Montgomery",
     "title": "Design and Analysis of Experiments",
     "review": "In my view the most complete and detailed book in the domain of experiment design. It takes the reader progressively from simple cases thoughout increasingly more elaborate. Always with rigorous statistical explanations and precise language.",
-    "cover": "img_sf/montgomerydoe.jpeg"
+    "cover": "img/montgomerydoe.jpeg"
   },
   {
     "id": "2",
@@ -13,7 +13,7 @@
     "lastName": "Bass",
     "title": "Six Sigma Statistics with Excel and Minitab",
     "review": "Excellent entry in the world of industrial statistics. Full of examples and datasets. Balances out theoretical explanations with how to practical cases, step by step to adopt in excel.",
-    "cover": "img_sf/basssixsigma.jpg"
+    "cover": "img/basssixsigma.jpg"
   },
   {
     "id": "4",
@@ -21,6 +21,14 @@
     "lastName": "Cano",
     "title": "Six Sigma with R",
     "review": "A step ahead in the application of statistics and data science to the industrial world. Here with R the open source language that is scalable and auditable.",
-    "cover": "img_sf/canosixsigma.jpeg"
+    "cover": "img/canosixsigma.jpeg"
+  },
+  {
+    "id": "4",
+    "firstName": "Roderick",
+    "lastName": "Munro",
+    "title": "The certified six sigma green belt handbook",
+    "review": "A complete reference to all relevant quality tools for product development and quality control in industrial context. Carefully compiled and organized and structured in a logical flow. A must have even for those not looking for certification.",
+    "cover": "img/munrosixsigma.jpg"
   }
 ]
