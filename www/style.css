@@ -40,11 +40,6 @@ a:hover {
   display: grid;
   grid-template-columns: 740px 100px;
   grid-gap: 10px;
-  /*padding: 10px;*/
-}
-
-.grid-container > div {
-  /*padding: 20px 0;*/
 }
 /* ----------------- Side navigation -----------------------*/
 .sidenav {
@@ -119,4 +114,12 @@ iframe {
     border: none;
     width: 100%;
 }
-
+/* ---------------- Networks iFrame -----------------*/
+.social-icon {
+    filter:grayscale(100%);
+    opacity: 0.7;
+  }
+  .social-icon:hover {
+    filter: none;
+    opacity: 1.0;
+  }
