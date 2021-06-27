@@ -1,0 +1,51 @@
+/* ---- Main grid ----*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 140px 480px;
+  gap: 10px;
+}
+
+.grid-container > div {
+  text-align: justify;
+  background-color: #ffffff;
+}
+
+/*---- Others----*/
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  color:   #404040;
+  font-size: 14px;
+  max-width: 1200px;
+  background-color: #ffffff;
+  line-height: 1.2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h2 {
+  color: #38598CFF;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+h3 {
+  color: #38598CFF;
+  font-size: 1.17em;
+  font-weight: bold
+}
+a {
+  color: #2D708EFF;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+  #side-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 50%;*/
+    padding: 1px 8px 1px 8px;
+    border-radius: 100%;
+  }

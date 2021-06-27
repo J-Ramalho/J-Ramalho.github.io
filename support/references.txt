@@ -46,3 +46,13 @@ https://www.w3schools.com/cssref/css_default_values.asp
 
 # Richard Feynman site to get materials for bookshelf
 # http://www.richardfeynman.com
+
+# Establish a grid in the CV to put the icons on the right of the experiences
+https://www.w3schools.com/cssref/pr_grid-template-columns.asp
+
+# An even larger grid for the entire page
+https://www.w3schools.com/cssref/pr_grid-template.asp
+
+# Dowload button
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_download_button
+https://www.w3schools.com/tags/att_a_download.asp

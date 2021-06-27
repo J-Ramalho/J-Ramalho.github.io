@@ -78,6 +78,10 @@ a:hover {
   padding: 1px 8px 1px 8px;
   border-radius: 100%;
 }
+.main {
+  margin-left: 330px;
+  padding: 0px 10px;
+}
 /* ------------------- Readings page --------------------*/
 .booklistHeader {
   color: #38598CFF;
@@ -97,10 +101,6 @@ a:hover {
   vertical-align: top;
   background-color: #edf1f7;
   border-color: transparent;
-}
-.main {
-  margin-left: 330px;
-  padding: 0px 10px;
 }
 /* ----------------- Rmarkdown ------------------*/
 .rmd-main {
@@ -123,3 +123,18 @@ iframe {
     filter: none;
     opacity: 1.0;
   }
+/*----Download button----*/
+.btn {
+  background-color: lightgray;
+  border-color: darkgrey;
+  border-radius: 16px;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  color: white;
+  background-color: #38598CFF;
+}
