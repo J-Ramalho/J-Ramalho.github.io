@@ -128,13 +128,13 @@ iframe {
   background-color: lightgray;
   border-color: darkgrey;
   border-radius: 16px;
-  padding: 12px 30px;
+  padding: 12px 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+  vertical-align: middle;
 }
 
 /* Darker background on mouse-over */
 .btn:hover {
-  color: white;
-  background-color: #38598CFF;
+  background-color: darkgrey;
 }
